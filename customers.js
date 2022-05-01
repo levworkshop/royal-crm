@@ -1,10 +1,11 @@
 const mysql = require('mysql2');
+const config = require('./config/dev');
 
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'apps',
-    database: 'royal_crm',
+    host: config.DB_HOST,
+    user: config.DB_USER,
+    password: config.DB_PASSWORD,
+    database: config.DB_DATABASE,
     waitForConnections: true,
     connectionLimit: 5,
     queueLimit: 0
@@ -28,15 +29,21 @@ module.exports = {
         pool.getConnection(function (connErr, connection) {
             if (connErr) throw connErr; // not connected!
 
+            // const sql = "INSERT INTO customers(name, phone, email, country_id)" +
+            //     " VALUES('" + name + "','" + phone + "','" + email + "','" + countryId + "');";
+
             const sql = "INSERT INTO customers(name, phone, email, country_id)" +
-                " VALUES('" + name + "','" + phone + "','" + email + "','" + countryId + "');";
+                " VALUES(?,?,?,?);";
 
-            connection.query(sql, function (sqlErr, result, fields) {
-                if (sqlErr) throw sqlErr;
+            connection.query(
+                sql,
+                [name, phone, email, countryId],
+                function (sqlErr, result, fields) {
+                    if (sqlErr) throw sqlErr;
 
-                console.log(fields);
-                console.log(result);
-            });
+                    console.log(fields);
+                    console.log(result);
+                });
         });
     },
 
