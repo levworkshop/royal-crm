@@ -24,13 +24,23 @@ module.exports = {
         });
     },
 
-    customersList: function (req, res) {
+    customersList: async function (req, res) {
         const sql = "SELECT * FROM customers";
 
-        database.getConnection()
-            .then(connection => database.runQuery(connection, sql))
-            .then(result => res.send(result))
-            .catch(err => console.log(err));
+        try {    
+            const connection = await database.getConnection();
+            const result = await database.runQuery(connection, sql);
+            res.send(result);
+        } 
+        catch (err) {
+            console.log(err);
+        }
+
+
+        // database.getConnection()
+        //     .then(connection => database.runQuery(connection, sql))
+        //     .then(result => res.send(result))
+        //     .catch(err => console.log(err));
 
 
         // database.pool.getConnection(function (connErr, connection) {
