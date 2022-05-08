@@ -25,16 +25,24 @@ module.exports = {
     },
 
     customersList: function (req, res) {
-        database.pool.getConnection(function (connErr, connection) {
-            if (connErr) throw connErr; // not connected!
+        const sql = "SELECT * FROM customers";
 
-            const sql = "SELECT * FROM customers";
+        database.getConnection()
+            .then(connection => database.runQuery(connection, sql))
+            .then(result => res.send(result))
+            .catch(err => console.log(err));
 
-            connection.query(sql, function (sqlErr, result, fields) {
-                if (sqlErr) throw sqlErr;
 
-                res.send(result);
-            });
-        });
+        // database.pool.getConnection(function (connErr, connection) {
+        //     if (connErr) throw connErr; // not connected!
+
+        //     const sql = "SELECT * FROM customers";
+
+        //     connection.query(sql, function (sqlErr, result, fields) {
+        //         if (sqlErr) throw sqlErr;
+
+        //         res.send(result);
+        //     });
+        // });
     }
 }
