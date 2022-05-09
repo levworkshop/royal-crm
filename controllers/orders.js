@@ -1,24 +1,29 @@
 const database = require('./database');
 
 module.exports = {
-    orders: [],
-
-     addOrder: function() {
-        const name = process.argv.slice(2);
+    //  addOrder: function() {
+    //     const name = process.argv.slice(2);
     
-        if (!name || name.length === 0) {
-            throw ('ERROR: name is empty');
+    //     if (!name || name.length === 0) {
+    //         throw ('ERROR: name is empty');
+    //     }
+    
+    //     this.orders.push({
+    //         name: name,
+    //         id: this.orders.length,
+    //     });        
+    // },
+
+    ordersList: async function(req, res){
+        const sql = "SELECT * FROM orders";
+
+        try {    
+            const connection = await database.getConnection();
+            const result = await database.runQuery(connection, sql);
+            res.send(result);
+        } 
+        catch (err) {
+            console.log(err);
         }
-    
-        this.orders.push({
-            name: name,
-            id: this.orders.length,
-        });        
-    },
-
-    ordersList: function(){
-        this.orders.forEach(order => {
-            console.log(`ok. name: ${orders.name} was created.`);
-        })
     }
 }
