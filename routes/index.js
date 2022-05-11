@@ -3,6 +3,7 @@ const router = express.Router();
 const cm = require('../controllers/customers');
 const productsModule = require('../controllers/products');
 const ordersModule = require('../controllers/orders');
+const path = require('path');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -10,6 +11,14 @@ router.get('/', function (req, res, next) {
 });
 
 /* customers */
+router.get('/cusomters-file', function(req, res, next){
+  
+  const filePath = path.join(__dirname, '../client', 'customers-home.html'); 
+  // c:\prjects\royal-crm\client\customers-home.html
+  
+  res.sendFile(filePath);
+})
+
 router.get('/customers', cm.customersList);
 router.get('/customers-add', cm.addCustomer);
 

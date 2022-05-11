@@ -47,7 +47,11 @@ module.exports = {
 
     // todo: export all customers to file
     // sql: SELECT
-    exportCustomers: async function(req, res, next) {},
+    exportCustomers: async function(req, res, next) {
+        const sql = "SELECT cust.name, cust.phone, cust.email, " +
+            "cntr.name AS country_name FROM customers cust " +
+            "LEFT JOIN countries cntr ON cust.country_id = cntr.id ORDER BY cust.name ASC;";
+    },
 
     // todo: sort customers by column
     // sql: SORT BY ASC/DESC
