@@ -14,7 +14,7 @@ module.exports = {
     //     });        
     // },
 
-    ordersList: async function(req, res){
+    ordersList: async function(req, res, next){
         const sql = "SELECT * FROM orders";
 
         try {    

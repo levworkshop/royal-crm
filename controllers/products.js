@@ -23,7 +23,7 @@ module.exports = {
     //     });
     // },
 
-    productsList: async function (req, res) {
+    productsList: async function (req, res, next) {
         const sql = "SELECT * FROM products";   
            
         try {    
