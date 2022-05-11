@@ -10,10 +10,12 @@ router.get('/', function (req, res, next) {
 });
 
 /* customers */
-router.get('/customers', function (req, res, next) {
-  // customersModule.addCustomer('Lola', '05233333', 'hi@gmail.com', 1);
-  customersModule.customersList(req, res);
-});
+router.get('/customers', customersModule.customersList);
+
+
+// router.get('/customers', function (req, res, next) {
+//   customersModule.customersList(req, res);
+// });
 
 /* products */
 router.get('/products', function (req, res, next) {
