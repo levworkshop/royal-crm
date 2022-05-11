@@ -18,9 +18,9 @@ module.exports = {
         const sql = "SELECT * FROM orders";
 
         try {    
-            const connection = await database.getConnection();
-            const result = await database.runQuery(connection, sql);
-            res.send(result);
+            // const connection = await database.getConnection();
+            const result = await database.query(sql);
+            res.send(result[0]);
         } 
         catch (err) {
             console.log(err);

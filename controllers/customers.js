@@ -30,9 +30,9 @@ module.exports = {
         "LEFT JOIN countries cntr ON cust.country_id = cntr.id ORDER BY cust.name ASC;";
 
         try {    
-            const connection = await database.getConnection();
-            const result = await database.runQuery(connection, sql);
-            res.send(result);
+            // const connection = await database.getConnection();
+            const result = await database.query(sql); // [rows, fields]
+            res.send(result[0]);
         } 
         catch (err) {
             console.log(err);
