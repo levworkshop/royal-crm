@@ -1,39 +1,39 @@
 const database = require('./database');
 
 module.exports = {
-    // addCustomer: function (name, phone, email, countryId) {
-    //     if (!name || name.length === 0) {
-    //         throw ('ERROR: name is empty');
-    //     }
+    addCustomer: async function (req, res, next) {
+        const qs = req.query;
+        const name = qs.name;
+        const phone = qs.phone;
+        const email = qs.email;
+        const country = qs.country;
 
-    //     database.pool.getConnection(function (connErr, connection) {
-    //         if (connErr) throw connErr; // not connected!
+        if (!name || name.length === 0) {
+            throw ('ERROR: name is empty');
+        }
 
-    //         const sql = "INSERT INTO customers(name, phone, email, country_id)" +
-    //             " VALUES(?,?,?,?);";
+        const sql = "INSERT INTO customers(name, phone, email, country_id)" +
+            " VALUES(?,?,?,?);";
 
-    //         connection.query(
-    //             sql,
-    //             [name, phone, email, countryId],
-    //             function (sqlErr, result, fields) {
-    //                 if (sqlErr) throw sqlErr;
-
-    //                 // console.log(fields);
-    //                 console.log(result);
-    //             });
-    //     });
-    // },
+        try {
+            const result = await database.query(sql, [name, phone, email, country]); // [rows, fields]
+            res.send(`${name} added successfully`);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    },
 
     customersList: async function (req, res, next) {
         const sql = "SELECT cust.id, cust.name, cust.phone, cust.email, " +
-        "cntr.id AS country_id, cntr.name AS country_name, cntr.country_code FROM customers cust " +
-        "LEFT JOIN countries cntr ON cust.country_id = cntr.id ORDER BY cust.name ASC;";
+            "cntr.id AS country_id, cntr.name AS country_name, cntr.country_code FROM customers cust " +
+            "LEFT JOIN countries cntr ON cust.country_id = cntr.id ORDER BY cust.name ASC;";
 
-        try {    
+        try {
             // const connection = await database.getConnection();
             const result = await database.query(sql); // [rows, fields]
             res.send(result[0]);
-        } 
+        }
         catch (err) {
             console.log(err);
         }

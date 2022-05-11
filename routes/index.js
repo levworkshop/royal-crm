@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
 
 /* customers */
 router.get('/customers', customersModule.customersList);
+router.get('/customers-add', customersModule.addCustomer);
 
 /* products */
 router.get('/products', productsModule.productsList);
