@@ -37,5 +37,28 @@ module.exports = {
         catch (err) {
             console.log(err);
         }
-    }
+    },
+
+    // todo: delete customer
+    // sql: DROP
+    deleteCustomer: async function(req, res, next) {
+
+    },
+
+    // todo: export all customers to file
+    // sql: SELECT
+    exportCustomers: async function(req, res, next) {},
+
+    // todo: sort customers by column
+    // sql: SORT BY ASC/DESC
+
+    // todo: search in customers by parameter (name,email,country)
+    // sql: SELECT WHERE
+    findCustomer: async function(req, res, next) {},
+
+    // todo: edit/update customer
+    updateCustomer: async function(req, res, next) {},
+
+    // todo: view more details of a customer
+    viewCustomerDetails: async function(req, res, next) {},
 }
