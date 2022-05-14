@@ -11,11 +11,8 @@ router.get('/', function (req, res, next) {
 });
 
 /* customers */
-router.get('/cusomters-file', function(req, res, next){
-  
-  const filePath = path.join(__dirname, '../client', 'customers-home.html'); 
-  // c:\prjects\royal-crm\client\customers-home.html
-  
+router.get('/cusomters-file', function (req, res, next) {
+  const filePath = path.join(__dirname, '../client', 'customers-home.html');
   res.sendFile(filePath);
 })
 
