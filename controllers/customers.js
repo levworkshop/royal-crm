@@ -2,26 +2,32 @@ const database = require('./database');
 
 module.exports = {
     addCustomer: async function (req, res, next) {
-        const qs = req.query;
+        const qs = req.body;
         const name = qs.name;
         const phone = qs.phone;
         const email = qs.email;
-        const country = qs.country;
+        const country = qs.countryInputHtml;
 
         if (!name || name.length === 0) {
             throw ('ERROR: name is empty');
         }
 
-        const sql = "INSERT INTO customers(name, phone, email, country_id)" +
+        const sql = 
+        "INSERT INTO customers(name, phone, email, country_id)" +
             " VALUES(?,?,?,?);";
 
         try {
-            const result = await database.query(sql, [name, phone, email, country]); // [rows, fields]
-            res.send(`${name} added successfully`);
+            const result = await database.query(
+                sql, 
+                [name, phone, email, country]
+            );
         }
         catch (err) {
             console.log(err);
+            return;
         }
+
+        res.send(`${name} added successfully`);
     },
 
     customersList: async function (req, res, next) {

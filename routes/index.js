@@ -11,13 +11,13 @@ router.get('/', function (req, res, next) {
 });
 
 /* customers */
-router.get('/cusomters-file', function (req, res, next) {
+router.get('/cusomters-home', function (req, res, next) {
   const filePath = path.join(__dirname, '../client', 'customers-home.html');
   res.sendFile(filePath);
 })
 
 router.get('/customers', cm.customersList);
-router.get('/customers-add', cm.addCustomer);
+router.post('/customers', cm.addCustomer);
 
 // todo: delete customer
 router.delete('/customers', cm.deleteCustomer);

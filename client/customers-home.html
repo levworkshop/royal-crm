@@ -7,8 +7,29 @@
 </head>
 <body>
     <h3>form for export customers</h3>
-    <form method="get" url="/customers-export">
+    <form method="get" action="/customers-export">
         <button type="submit">Export Customers</button>
+    </form>
+
+    <h3>Add customer</h3>
+    <form method="post" action="/customers">
+        <div>
+            <label>Name:</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input type="text" name="phone">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label>Country:</label>
+            <input type="number" name="countryInputHtml">
+        </div>
+        <button type="submit">Add Customer</button>
     </form>
 </body>
 </html>
