@@ -23,7 +23,7 @@ router.post('/customers', cm.addCustomer);
 router.delete('/customers', cm.deleteCustomer);
 
 // todo: export all customers to file
-router.get('/customers-export', cm.exportCustomers);
+router.get('/customers/export', cm.exportCustomers);
 
 // todo: edit/update customer
 router.patch('/customers', cm.updateCustomer);
