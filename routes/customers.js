@@ -3,16 +3,18 @@ const router = express.Router();
 const path = require('path');
 const cm = require('../controllers/customers');
 
-router.get('/cusomters/home', function (req, res, next) {
+// http://localhost:3000/customers/home
+
+router.get('/home', function (req, res, next) {
     const filePath = path.join(__dirname, '../client', 'customers-home.html');
     res.sendFile(filePath);
 });
 
-router.get   ('/customers', cm.customersList);
-router.get   ('/customers/detailes', cm.viewCustomerDetails);
-router.get   ('/customers/export', cm.exportCustomers);
-router.patch ('/customers', cm.updateCustomer);
-router.post  ('/customers', cm.addCustomer);
-router.delete('/customers', cm.deleteCustomer);
+router.get   ('/', cm.customersList);
+router.get   ('/details', cm.viewCustomerDetails);
+router.get   ('/export', cm.exportCustomers);
+router.patch ('/', cm.updateCustomer);
+router.post  ('/', cm.addCustomer);
+router.delete('/', cm.deleteCustomer);
 
 module.exports = router;
