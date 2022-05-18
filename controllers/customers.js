@@ -71,7 +71,6 @@ module.exports = {
 
             const now = new Date().getTime(); // moment.js
             const filePath = path.join(__dirname, '../files', `customers-${now}.txt`); 
-            // c:\\projects\royal-crm\files\customers.txt
             const stream = fs.createWriteStream(filePath);
 
             stream.on('open', function(){

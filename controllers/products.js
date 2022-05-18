@@ -3,7 +3,7 @@ const database = require('./database');
 module.exports = {
     // todo: update to use resent changes...
 
-    addProduct: async function (name, desc, price) {
+    addProduct: async function (req, res, next) {
         //     if (!name || name.length === 0) {
         //         throw ('ERROR: name is empty');
         //     }
@@ -23,6 +23,8 @@ module.exports = {
         //                 console.log(result);
         //             });
         //     });
+
+        res.send('todo add products');
     },
 
     productsList: async function (req, res, next) {
@@ -39,24 +41,27 @@ module.exports = {
     },
 
     // todo: search product by name
-    exportProducts: async function () {
+    exportProducts: async function (req, res, next) {
         const sql = "SELECT name,description,price FROM products ORDER BY name ASC;";
+        res.send('todo export products');
     },
 
     // todo: edit product details
-    editProduct: async function () {
+    editProduct: async function (req, res, next) {
         // const sql = UPDATE
-
+        res.send('todo update products');
      },
 
     // todo: delete product
-    deleteProduct: async function () {
+    deleteProduct: async function (req, res, next) {
         // const sql = DROP
+        res.send('todo delete products');
      },
 
     // todo: search product by name
-    searchProducts: async function () {
+    searchProducts: async function (req, res, next) {
         // const sql = SELECT WHERE...
+        res.send('todo search products');
      },
 
     // todo: sort products by name...
