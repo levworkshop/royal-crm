@@ -1,7 +1,7 @@
-const database = require('./database');
 const joi = require('joi');
 const fs = require('fs');
 const path = require('path');
+const database = require('./database');
 
 module.exports = {
     addCustomer: async function (req, res, next) {
@@ -50,8 +50,7 @@ module.exports = {
             "LEFT JOIN countries cntr ON cust.country_id = cntr.id ORDER BY cust.name ASC;";
 
         try {
-            // const connection = await database.getConnection();
-            const result = await database.query(sql); // [rows, fields]
+            const result = await database.query(sql);
             res.send(result[0]);
         }
         catch (err) {
@@ -59,39 +58,30 @@ module.exports = {
         }
     },
 
-    // todo: export all customers to file
-    // sql: SELECT
     exportCustomers: async function (req, res, next) {
         const sql = "SELECT cust.name, cust.phone, cust.email, " +
             "cntr.name AS country_name FROM customers cust " +
             "LEFT JOIN countries cntr ON cust.country_id = cntr.id ORDER BY cust.name ASC;";
 
         try {
-            const result = await database.query(sql); // [{rows}, {fields}]
+            const result = await database.query(sql);
 
             const now = new Date().getTime(); // moment.js
-            const filePath = path.join(__dirname, '../files', `customers-${now}.txt`); 
+            const filePath = path.join(__dirname, '../files', `customers-${now}.txt`);
             const stream = fs.createWriteStream(filePath);
 
-            stream.on('open', function(){
+            stream.on('open', function () {
                 stream.write(JSON.stringify(result[0]));
                 stream.end();
             });
 
-            stream.on('finish', function(){
+            stream.on('finish', function () {
                 res.send(`Success. File at: ${filePath}`);
             });
         }
-        catch(err){
+        catch (err) {
             throw err;
         }
-
-    },
-
-
-    // todo: delete customer
-    // sql: DROP
-    deleteCustomer: async function (req, res, next) {
 
     },
 
