@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const cm = require('../controllers/customers');
 
-// http://localhost:3000/customers/home
+// http://localhost:3000/customers/export
 
 router.get('/home', function (req, res, next) {
     const filePath = path.join(__dirname, '../client', 'customers-home.html');
@@ -11,10 +11,10 @@ router.get('/home', function (req, res, next) {
 });
 
 router.get   ('/', cm.customersList);
-router.get   ('/details', cm.viewCustomerDetails);
+// router.get   ('/details', cm.viewCustomerDetails);
 router.get   ('/export', cm.exportCustomers);
-router.patch ('/', cm.updateCustomer);
+// router.patch ('/', cm.updateCustomer);
 router.post  ('/', cm.addCustomer);
-router.delete('/', cm.deleteCustomer);
+// router.delete('/', cm.deleteCustomer);
 
 module.exports = router;

@@ -6,14 +6,19 @@
     <title>Products</title>
 </head>
 <body>
+    <h3>Get all products</h3>
+    <form method="get" action="/products">
+        <button type="submit">Get Products</button>
+    </form>
+
+
     <h3>Export products</h3>
     <form method="get" action="/products/export">
         <button type="submit">Export Products</button>
     </form>
 
 
-
-    <h3>Add products</h3>
+    <h3>Add product</h3>
     <form method="post" action="/products">
         <div>
             <label>Name:</label>
@@ -25,11 +30,11 @@
         </div>
         <div>
             <label>Price:</label>
-            <input type="number" name="price">
+            <input type="number" name="price" min="1">
         </div>
         <!-- todo: add image -->
         
-        <button type="submit">Add Products</button>
+        <button type="submit">Add Product</button>
     </form>
 </body>
 </html>
