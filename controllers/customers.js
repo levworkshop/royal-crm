@@ -10,14 +10,14 @@ module.exports = {
         const schema = joi.object({
             name: joi.string().required().min(2).max(200),
             phone: joi.string().required().regex(/^[0-9]\d{8,11}$/),
-            email: joi.string().required(),
+            email: joi.string().required().regex(/^[^@]+@[^@]+$/),
             countryInputHtml: joi.number().required(),
         });
 
         const { error, value } = schema.validate(reqBody);
 
         if (error) {
-            res.send(`error adding customer: ${error}`);
+            (`error adding customer: ${error}`);
             return;
         }
 

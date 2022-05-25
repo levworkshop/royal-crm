@@ -86,7 +86,7 @@ module.exports = {
 
     // todo: delete product
     deleteProduct: async function (req, res, next) {
-        // const sql = DROP
+        // const sql = DELETE
         res.send('todo delete products');
     },
 

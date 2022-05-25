@@ -6,6 +6,7 @@ Mini CRM project aimed at managing customers, products and orders.
 * Node.js
 * Express.js
 * MySQL
+* nodemon
 
 ## Prepare The Environment
 1. Create a new MySQL database, follow instructions in the `docs` folder.

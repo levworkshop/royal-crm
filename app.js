@@ -3,6 +3,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const auth = require('./middleware/auth');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var customersRouter = require('./routes/customers');
@@ -18,9 +20,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/customers', customersRouter);
-app.use('/products', productsRouter);
-app.use('/orders', ordersRouter);
+app.use('/users', auth, usersRouter);
+app.use('/customers', auth, customersRouter);
+app.use('/products', auth, productsRouter);
+app.use('/orders',auth, ordersRouter);
 
 module.exports = app;
