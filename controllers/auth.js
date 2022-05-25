@@ -26,8 +26,6 @@ module.exports = {
         try {
             const result = await database.query(sql, [reqBody.email]);
             const rows = result[0];
-            // $2b$10$nOpWM1slxvsqdsHhW4VRkeY8fDsndvrf8aKHAwNdpgf
-            // 123456
             const validPassword = await bcrypt.compare(reqBody.password, rows[0].password_hash);
             if (!validPassword) throw 'Invalid password';
         } catch (err) {

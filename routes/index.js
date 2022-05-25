@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const mwAuth = require('../middleware/auth');
 const auth = require('../controllers/auth');
+const fileMgmt = require('../shared/fileMgmt');
 
 /* authentication */
 router.get('/signin', function (req, res, next) {
-  const filePath = path.join(__dirname, '../client', 'login.html');
+  const filePath = fileMgmt.getHtmlFilePath('login.html');
   res.sendFile(filePath);
 });
 
@@ -25,7 +25,7 @@ router.get('/', mwAuth, function (req, res, next) {
 });
 
 router.get('/chat', mwAuth, function (req, res, next) {
-  const filePath = path.join(__dirname, '../client', 'chat.html');
+  const filePath = fileMgmt.getHtmlFilePath('chat.html');
   res.sendFile(filePath);
 });
 
