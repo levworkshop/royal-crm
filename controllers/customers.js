@@ -8,7 +8,7 @@ module.exports = {
 
         const schema = joi.object({
             name: joi.string().required().min(2).max(200),
-            phone: joi.string().required().regex(/^[0-9]\d{8,11}$/),
+            phone: joi.string().required().regex(/^[0-9]{8,11}$/),
             email: joi.string().required().regex(/^[^@]+@[^@]+$/),
             countryInputHtml: joi.number().required(),
         });
@@ -16,7 +16,7 @@ module.exports = {
         const { error, value } = schema.validate(reqBody);
 
         if (error) {
-            (`error adding customer: ${error}`);
+            res.send(`error adding customer: ${error}`);
             return;
         }
 
@@ -55,15 +55,15 @@ module.exports = {
         const { error, value } = schema.validate(param);
 
         const fieldsMap = new Map([
-            ['name', 'customer.name'],
-            ['email', 'customer.email'],
+            ['name', 'customers.name'],
+            ['email', 'customers.email'],
             ['country_name', 'countries.name'],
         ]);
                 
         const sql = `SELECT customers.id, customers.name, customers.phone, customers.email,  
             countries.id AS country_id, countries.name AS country_name, countries.country_code  
             FROM customers LEFT JOIN countries ON customers.country_id = countries.id 
-            ORDER BY ${fieldsMap.get(value.column)} ${value.sort};`;
+            ORDER BY ${ fieldsMap.get(value.column) } ${value.sort};`;
 
         try {
             const result = await database.query(sql);
@@ -83,9 +83,6 @@ module.exports = {
         fileMgmt.exportToFile(res, sql, 'customers');
     },
 
-    // todo: sort customers by column
-    // sql: SORT BY ASC/DESC
-
     // todo: search in customers by parameter (name,email,country)
     // sql: SELECT WHERE
     findCustomer: async function (req, res, next) { },
@@ -94,5 +91,5 @@ module.exports = {
     updateCustomer: async function (req, res, next) { },
 
     // todo: view more details of a customer
-    viewCustomerDetails: async function (req, res, next) { },
+    // viewCustomerDetails: async function (req, res, next) { },
 }
