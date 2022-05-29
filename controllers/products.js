@@ -1,5 +1,5 @@
-const database = require('./database');
 const joi = require('joi');
+const database = require('./database');
 const fileMgmt = require('../shared/fileMgmt');
 
 module.exports = {
@@ -67,7 +67,7 @@ module.exports = {
     // todo: delete product
     deleteProduct: async function (req, res, next) {
         // const sql = DELETE
-        res.send('todo delete products');
+        res.send('todo delete product');
     },
 
     // todo: search product by name

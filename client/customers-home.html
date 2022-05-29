@@ -20,6 +20,12 @@
         <button type="submit">Get All Customers</button>
     </form>
 
+    <h3>Search customers</h3>
+    <form method="get" action="/customers/find">
+        <input type="text" name="search">
+        <button type="submit">Search</button>
+    </form>
+
 
     <h3>export customers</h3>
     <form method="get" action="/customers/export">
@@ -30,20 +36,20 @@
     <h3>add customer</h3>
     <form method="post" action="/customers" >
         <div>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+            <label>Name:</label>
+            <input type="text" name="name">
         </div>
         <div>
             <label for="phone">Phone:</label>
-            <input type="text" name="phone" id="phone">
+            <input type="text" name="phone">
         </div>
         <div>
-            <label for="phone">Email:</label>
-            <input type="email" name="email" id="email">
+            <label for="email">Email:</label>
+            <input type="email" name="email">
         </div>
         <div>
-            <label for="country">Country:</label>
-            <input type="number" name="countryInputHtml" id="country">
+            <label>Country:</label>
+            <input type="number" name="countryInputHtml">
         </div>
         
         <button type="submit">Add Customer</button>
