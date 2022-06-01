@@ -20,7 +20,7 @@ router.get('/logout', mwAuth, function (req, res, next) {
 })
 
 /* home page */
-router.get('/', mwAuth, function (req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('this is the home page. use /customers/home /products/home or /orders/home.')
 });
 

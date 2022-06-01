@@ -1,21 +1,16 @@
-const mysql = require('mysql2');
+const { MongoClient } = require('mongodb');
 const config = require('../config/dev');
 
-const pool = mysql.createPool({
-    host: config.DB_HOST,
-    user: config.DB_USER,
-    password: config.DB_PASSWORD,
-    database: config.DB_NAME,
-    waitForConnections: true,
-    connectionLimit: 5,
-    queueLimit: 0
-});
+const client = new MongoClient(config.MONGO_HOST); // connection url
+let db = undefined;
 
-async function query(sql, values) {
-    const promisePool = pool.promise();
-    return [rows, fields] = await promisePool.query(sql, values);
+async function getDb() {
+    if (db) return db;
+
+    await client.connect();
+    return client.db(config.MONGO_DB);
 }
 
 module.exports = {
-    query,
+    getDb,
 }
