@@ -28,21 +28,33 @@ module.exports = {
             const rows = result[0];
             const validPassword = await bcrypt.compare(reqBody.password, rows[0].password_hash);
             if (!validPassword) throw 'Invalid password';
-        } catch (err) {
+
+            const param = { email: reqBody.email };
+            const token = jwt.sign(param, config.JWT_SECRET, { expiresIn: '72800s' });
+
+            // todo: use authorization header
+            // res
+            //     .cookie('access_token', token, {
+            //         httpOnly: true,
+            //         secure: true,
+            //     })
+            //     .send('Welcome, you are now logged in.');
+
+            res
+                .json({
+                    token: token
+                })
+
+
+
+
+        }
+        catch (err) {
             console.log(`Error: ${err}`);
             res.status(401).send('Unauthorized');
             return;
         }
 
-        const param = { email: reqBody.email };
-        const token = jwt.sign(param, config.JWT_SECRET, { expiresIn: '72800s' });
 
-        // todo: use authorization header
-        res
-            .cookie('access_token', token, {
-                httpOnly: true,
-                secure: true,
-            })
-            .send('Welcome, you are now logged in.');
     },
 }
