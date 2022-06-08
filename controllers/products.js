@@ -41,7 +41,30 @@ module.exports = {
     },
 
     productsList: async function (req, res, next) {
-        const sql = "SELECT * FROM products ORDER BY name ASC;";
+        /*
+        1. [V] add fields in the products html
+        2. [V] get the parameters from the request
+        3. [V] validate parameters using joi
+        4. [V] if validation fail - return error
+        6. [V] update sql query with parameters
+        */
+        
+        const param = req.query;
+
+        const schema = joi.object({
+            column: joi.string().valid('name', 'price').default('name'),
+            sort: joi.string().valid('ASC', 'DESC').default('ASC'),
+        });
+
+        const { error, value } = schema.validate(param);
+
+        if (error) {
+            // console.log(error);
+            res.status(400).send('add failed');
+            throw error;
+        }
+
+        const sql = `SELECT * FROM products ORDER BY products.${value.column} ${value.sort};`;
 
         try {
             const result = await database.query(sql);
