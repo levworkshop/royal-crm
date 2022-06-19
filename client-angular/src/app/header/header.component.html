@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">{{brandName}}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,9 +23,9 @@
             </ul>
         </div>
     </div>
-    <div class="d-flex">
-        <span class="navbar-text">Hello {{userName}}</span>
-        <span class="navbar-text">|</span>
-        <span class="navbar-text">{{today}}</span>
+    <div class="d-flex navbar-nav">
+        <span class="navbar-text">Hello {{userName | titlecase}}</span>
+        <span class="navbar-text mx-3">|</span>
+        <span class="navbar-text">{{today | date}}</span>
     </div>
 </nav>
