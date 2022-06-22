@@ -6,20 +6,16 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    title = 'Welcome';
-    inputType = 'text';
-    success = true;
+
+    // inputType = 'text';
+
     night = true;
     items = ['orange', 'apple', 'banana'];
-    labels = ['Customers', 'Products', 'Orders'];
 
-    getTitleClass(): string {
-        return this.success ? 'text-info' : 'text-danger';
-    }
 
-    toggleTitleColor() {
-        this.success = !this.success;
-    }
+
+
+
 
     isItNight() {
         return this.night;
