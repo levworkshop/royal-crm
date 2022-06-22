@@ -1,28 +1,13 @@
 <app-header></app-header>
 
 <h1 [ngClass]="getTitleClass()">{{ title }}</h1>
-<!-- <button (click)="toggleTitleColor()">Toggle Tittle color</button>
-<button (click)="addAnotherItem()">Add Item</button>
-
-<div *ngIf="isItNight()">Good Night</div>
-
-<ul>
-    <li *ngFor="let item of items">{{item}}</li>
-</ul> -->
 
 <div>
     <div *ngFor="let label of labels">
         <app-button [label]="label"></app-button>
     </div>
-    <!-- <div class="my-3">
-        <app-button></app-button>
-    </div>
-    <div>
-        <app-button></app-button>
-    </div> -->
 </div>
 
-<!-- <input [type]="inputType"> -->
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
@@ -33,3 +18,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>
