@@ -14,23 +14,23 @@ import { OrdersComponent } from './orders/orders.component';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ButtonComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    CustomersComponent,
-    ProductsComponent,
-    OrdersComponent,
-SignupComponent
-  ],
-  imports: [
-    BrowserModule,
-ReactiveFormsModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ButtonComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        CustomersComponent,
+        ProductsComponent,
+        OrdersComponent,
+        SignupComponent
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,40 +6,25 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit, AfterViewInit {
-
-    @ViewChild('first') firstField!: ElementRef;
+export class SignupComponent implements OnInit {
 
     signupForm = new FormGroup({
-        firstName: new FormControl('', {
-            validators: Validators.required,
-        }),
-        lastName: new FormControl('', {
-            validators: Validators.required
-        }),
-        email: new FormControl('', {
-            validators: Validators.email
-        }),
-        password: new FormControl('', {
-            validators: [Validators.required, Validators.minLength(6)]
-        }),
-        retypePassword: new FormControl('', {
-            validators: [Validators.required, Validators.minLength(6)]
-        }),
+        firstName: new FormControl('default value'),
+        lastName: new FormControl(''),
+        email: new FormControl(''),
+        password: new FormControl(''),
+        retypePassword: new FormControl(''),
     });
 
-    constructor() { }
+    constructor() {
+
+    }
 
     ngOnInit(): void {
     }
 
-    ngAfterViewInit() {
-        this.firstField.nativeElement.focus();
-    }
-
     onSubmit() {
         console.log(this.signupForm.value);
-        console.log(this.signupForm.valid);
     }
 
 }
