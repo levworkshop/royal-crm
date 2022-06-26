@@ -9,22 +9,51 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
 
     signupForm = new FormGroup({
-        firstName: new FormControl('default value'),
-        lastName: new FormControl(''),
-        email: new FormControl(''),
-        password: new FormControl(''),
-        retypePassword: new FormControl(''),
+        firstName: new FormControl('', {
+            validators: Validators.required
+        }),
+        lastName: new FormControl('', {
+            validators: Validators.required
+        }),
+        email: new FormControl('', {
+            validators: [Validators.required, Validators.email]
+        }),
+        password: new FormControl('', {
+            validators: [Validators.required, Validators.minLength(6)]
+        }),
+        retypePassword: new FormControl('', {
+            validators: [Validators.required, Validators.minLength(6)]
+        }),
     });
 
-    constructor() {
+    constructor() { }
 
-    }
+    ngOnInit(): void { }
 
-    ngOnInit(): void {
+    validateData(): boolean {
+        if (!this.signupForm.valid) {
+            return false;
+        }
+
+        const password = this.signupForm.get('password');
+        const retypePassword = this.signupForm.get('retypePassword');
+
+        if (password && retypePassword &&
+            password.value === retypePassword.value
+        ) {
+            return false;
+        }
+
+        return true;
     }
 
     onSubmit() {
         console.log(this.signupForm.value);
+        console.log(this.signupForm.valid);
+
+        if (!this.validateData()) {
+            return;
+        }
     }
 
 }
