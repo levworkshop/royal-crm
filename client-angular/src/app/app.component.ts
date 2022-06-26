@@ -7,21 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-    // inputType = 'text';
-
-    night = true;
-    items = ['orange', 'apple', 'banana'];
-
-
-
-
-
-
-    isItNight() {
-        return this.night;
-    }
-
-    addAnotherItem() {
-        this.items.push('papaya');
-    }
 }
