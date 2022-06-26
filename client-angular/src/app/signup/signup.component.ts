@@ -6,7 +6,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, AfterViewInit {
+
+    @ViewChild('first') firstField!: ElementRef;
 
     signupForm = new FormGroup({
         firstName: new FormControl('', {
@@ -30,6 +32,10 @@ export class SignupComponent implements OnInit {
 
     ngOnInit(): void { }
 
+    ngAfterViewInit(): void {
+        this.firstField.nativeElement.focus();
+    }
+
     validateData(): boolean {
         if (!this.signupForm.valid) {
             return false;
@@ -49,7 +55,7 @@ export class SignupComponent implements OnInit {
 
     onSubmit() {
         console.log(this.signupForm.value);
-        console.log(this.signupForm.valid);
+        console.log(this.validateData());
 
         if (!this.validateData()) {
             return;

@@ -25,5 +25,6 @@
             id="retypePassword">
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Account</button>
+    <button [disabled]="!signupForm.valid" type="submit" class="btn btn-primary">Create
+        Account</button>
 </form>
