@@ -13,6 +13,7 @@ import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { SessionService } from './services/session.service';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,9 @@ import { LoginComponent } from './login/login.component';
         ReactiveFormsModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [
+        SessionService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
