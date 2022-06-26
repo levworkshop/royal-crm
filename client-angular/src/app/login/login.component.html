@@ -7,7 +7,7 @@
         <label for="" class="form-label">Password</label>
         <input formControlName="password" type="password" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login</button>
 </form>
 
 <div>

@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     onSumbit() {
         console.log(this.loginForm.value);
+        console.log(this.loginForm.valid);
     }
 
 }
