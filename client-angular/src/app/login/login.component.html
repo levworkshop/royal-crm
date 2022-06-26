@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSumbit()">
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input #emailField formControlName="email" type="email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input formControlName="password" type="password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+<div>
+    <a routerLink="/signup-component" routerLinkActive="active" ariaCurrentWhenActive="page"
+        class="">Create New Account</a>
+</div>
