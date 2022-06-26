@@ -38,8 +38,8 @@ export class SignupComponent implements OnInit {
         const password = this.signupForm.get('password');
         const retypePassword = this.signupForm.get('retypePassword');
 
-        if (password && retypePassword &&
-            password.value === retypePassword.value
+        if (!password || !retypePassword ||
+            password.value !== retypePassword.value
         ) {
             return false;
         }
