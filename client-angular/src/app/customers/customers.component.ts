@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../core/api.service';
-import { Customer } from '../shared/types';
+import { Customer, FilePath } from '../shared/types';
 
 @Component({
     selector: 'app-customers',
@@ -18,6 +18,15 @@ export class CustomersComponent implements OnInit {
             next: (data: Array<Customer>) => { this.customers = data },
             error: (err) => console.error(err),
             complete: () => console.log(`complete`)
+        })
+    }
+
+    exportCustomersData() {
+        this.apiService.exportCustomers().subscribe({
+            next: (data: FilePath) => {
+                window.open(data.path);
+            },
+            error: (err) => console.error(err),
         })
     }
 }

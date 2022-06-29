@@ -1,3 +1,25 @@
-<p *ngFor="let customer of customers">
-    {{customer.name}}
-</p>
+<h1>Customers (<span>{{customers.length}}</span>)</h1>
+
+<div>
+    <input type="text" placeholder="Search by name, email, country">
+    <button (click)="exportCustomersData()">Export</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{customer.name}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone}}</td>
+            <td>{{customer.countryName}}</td>
+        </tr>
+    </tbody>
+</table>
