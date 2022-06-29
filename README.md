@@ -7,6 +7,7 @@ Mini CRM project aimed at managing customers, products and orders.
 * Express.js
 * MySQL
 * nodemon
+* Angular
 
 ## Prepare The Environment
 1. Create a new MySQL database, follow instructions in the `docs` folder.
@@ -14,6 +15,14 @@ Mini CRM project aimed at managing customers, products and orders.
 3. Install dependencies in vscode terminal: `npm install`
 4. Install nodemon globally: `npm i -g nodemon` and update `package.json` accordingly.
 5. In project, add configuration file: `config/dev.js` containing the database connection details.
-6. Run the app:
+6. Install dependencies for Angular client:   
+`cd client-angular`  
+`npm install`
+
+## Run The App
+1. Run the server:
     * Windows: `set DEBUG=royal-crm:*; & npm start`
-    * MacOS/Linux:  `DEBUG=royal-crm:* npm start`
+    * MacOS/Linux: `DEBUG=royal-crm:* npm start`
+2. Run the client:  
+`cd client-angular`  
+`ng serve`
