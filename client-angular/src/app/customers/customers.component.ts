@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { ApiService } from '../core/api.service';
 import { Customer, FilePath } from '../shared/types';
 
@@ -10,6 +10,8 @@ import { Customer, FilePath } from '../shared/types';
 export class CustomersComponent implements OnInit {
 
     customers!: Array<Customer>;
+    searchFieldValue!: NgModule;
+    searchTerm!: string;
 
     constructor(private apiService: ApiService) { }
 
@@ -28,5 +30,16 @@ export class CustomersComponent implements OnInit {
             },
             error: (err) => console.error(err),
         })
+    }
+
+    findCustomer(event: KeyboardEvent) {
+        // const value = event.target.value;
+
+        if (event.code === 'Enter' && event.target) {
+            // this.apiService.findCustomer().subscribe({
+            //     next: (data: Array<Customer>) => { this.customers = data },
+            //     error: (err) => console.error(err),
+            // })
+        }
     }
 }

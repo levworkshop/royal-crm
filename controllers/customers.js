@@ -138,7 +138,8 @@ module.exports = {
                 ]
             );
 
-            res.send(result[0]);
+            res.set('Access-Control-Allow-Origin', '*');
+            res.json(result[0]);
         } catch (err) {
             res.status(400).send(`search error: ${err}`);
             throw error;

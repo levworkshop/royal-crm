@@ -1,7 +1,8 @@
 <h1>Customers (<span>{{customers.length}}</span>)</h1>
 
 <div>
-    <input type="text" placeholder="Search by name, email, country">
+    <input [(ngModel)]="searchFieldValue" type="text"
+        placeholder="Search by name, email, country">
     <button (click)="exportCustomersData()">Export</button>
 </div>
 
