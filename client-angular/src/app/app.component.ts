@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { SessionService } from './services/session.service';
+import { SessionService } from './core/session.service';
 
 @Component({
     selector: 'app-root',
