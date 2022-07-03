@@ -3,7 +3,7 @@
 <div>
     <input (keydown)="findCustomer($event)" [(ngModel)]="searchFieldValue" type="text"
         placeholder="Search by name, email, country">
-    <button>X</button>
+    <button (click)="clearSearch()">X</button>
 
 
     <button (click)="exportCustomersData()" class="ms-4">Export</button>

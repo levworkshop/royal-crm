@@ -17,6 +17,10 @@ export class CustomersComponent implements OnInit {
     constructor(private apiService: ApiService) { }
 
     ngOnInit(): void {
+        this.getCustomers();
+    }
+
+    getCustomers() {
         this.apiService.getCustomersList().subscribe({
             next: (data: Array<Customer>) => { this.customers = data },
             error: (err) => console.error(err),
@@ -42,5 +46,10 @@ export class CustomersComponent implements OnInit {
                 error: (err) => console.error(err),
             })
         }
+    }
+
+    clearSearch() {
+        this.searchFieldValue = '';
+        this.getCustomers();
     }
 }
