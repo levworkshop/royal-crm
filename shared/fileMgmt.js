@@ -22,7 +22,6 @@ module.exports = {
             });
 
             stream.on('finish', function () {
-                res.set('Access-Control-Allow-Origin', '*');
                 res.json({ name: fileName });
             });
         }
