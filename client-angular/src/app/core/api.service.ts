@@ -20,6 +20,6 @@ export class ApiService {
     }
 
     findCustomer(searchTerm: string): Observable<Array<Customer>> {
-        return this.http.get<Array<Customer>>(`${environment.serverUrl}/customers/find?param=${searchTerm}`)
+        return this.http.get<Array<Customer>>(`${environment.serverUrl}/customers/find?search=${searchTerm}`)
     }
 }

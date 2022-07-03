@@ -1,9 +1,12 @@
 <h1>Customers (<span>{{customers.length}}</span>)</h1>
 
 <div>
-    <input [(ngModel)]="searchFieldValue" type="text"
+    <input (keydown)="findCustomer($event)" [(ngModel)]="searchFieldValue" type="text"
         placeholder="Search by name, email, country">
-    <button (click)="exportCustomersData()">Export</button>
+    <button>X</button>
+
+
+    <button (click)="exportCustomersData()" class="ms-4">Export</button>
 </div>
 
 <table class="table">

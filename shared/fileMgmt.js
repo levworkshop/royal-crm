@@ -26,7 +26,8 @@ module.exports = {
             });
         }
         catch (err) {
-            throw err;
+            res.status(400).send('Error');
+            // throw err;
         }
     },
 }
