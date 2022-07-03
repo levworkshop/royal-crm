@@ -12,10 +12,20 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
+            <th>
+                Name
+                <button (click)="sortCustomers('name')">{{displaySort('name')}}</button>
+            </th>
+            <th>
+                Email
+                <button (click)="sortCustomers('email')">{{displaySort('email')}}</button>
+            </th>
             <th>Phone</th>
-            <th>Country</th>
+            <th>
+                Country
+                <button
+                    (click)="sortCustomers('country_name')">{{displaySort('country_name')}}</button>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +33,7 @@
             <td>{{customer.name}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phone}}</td>
-            <td>{{customer.countryName}}</td>
+            <td>{{customer.country_name}}</td>
         </tr>
     </tbody>
 </table>
