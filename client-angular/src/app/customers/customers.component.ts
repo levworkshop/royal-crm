@@ -24,12 +24,15 @@ export class CustomersComponent implements OnInit {
     }
 
     exportCustomersData() {
-        this.apiService.exportCustomers().subscribe({
-            next: (data: FilePath) => {
-                window.open(`http://localhost:3000/${data.name}`);
-            },
-            error: (err) => console.error(err),
-        })
+        console.log('exportCustomersData');
+
+        // this.apiService.exportCustomers().subscribe({
+        //     next: (data: FilePath) => {
+        //         console.log(`http://localhost:3000/${data.name}`);
+        //         window.open(`http://localhost:3000/${data.name}`);
+        //     },
+        //     error: (err) => console.error(err),
+        // })
     }
 
     findCustomer(event: KeyboardEvent) {
