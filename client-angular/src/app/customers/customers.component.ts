@@ -24,8 +24,12 @@ export class CustomersComponent implements OnInit {
         this.apiService.getCustomersList().subscribe({
             next: (data: Array<Customer>) => { this.customers = data },
             error: (err) => console.error(err),
-            complete: () => console.log(`complete`)
+            // complete: () => console.log(`complete`)
         })
+    }
+
+    customersTotal(): number {
+        return this.customers ? this.customers.length : 0;
     }
 
     exportCustomersData() {

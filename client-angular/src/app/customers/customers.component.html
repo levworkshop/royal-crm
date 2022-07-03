@@ -1,4 +1,4 @@
-<h1>Customers (<span>{{customers.length}}</span>)</h1>
+<h1>Customers (<span>{{customersTotal()}}</span>)</h1>
 
 <div>
     <input (keydown)="findCustomer($event)" [(ngModel)]="searchFieldValue" type="text"
