@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ApiService } from '../core/api.service';
 import { Customer, FilePath } from '../shared/types';
 
@@ -24,15 +25,12 @@ export class CustomersComponent implements OnInit {
     }
 
     exportCustomersData() {
-        console.log('exportCustomersData');
-
-        // this.apiService.exportCustomers().subscribe({
-        //     next: (data: FilePath) => {
-        //         console.log(`http://localhost:3000/${data.name}`);
-        //         window.open(`http://localhost:3000/${data.name}`);
-        //     },
-        //     error: (err) => console.error(err),
-        // })
+        this.apiService.exportCustomers().subscribe({
+            next: (data: FilePath) => {
+                window.open(`${environment.serverUrl}/${data.name}`);
+            },
+            error: (err) => console.error(err),
+        })
     }
 
     findCustomer(event: KeyboardEvent) {
