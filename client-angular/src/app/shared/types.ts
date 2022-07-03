@@ -9,5 +9,5 @@ export interface Customer {
 }
 
 export interface FilePath {
-    path: string;
+    name: string;
 }

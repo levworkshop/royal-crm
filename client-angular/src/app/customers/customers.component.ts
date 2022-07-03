@@ -26,7 +26,7 @@ export class CustomersComponent implements OnInit {
     exportCustomersData() {
         this.apiService.exportCustomers().subscribe({
             next: (data: FilePath) => {
-                window.open(data.path);
+                window.open(`http://localhost:3000/${data.name}`);
             },
             error: (err) => console.error(err),
         })
