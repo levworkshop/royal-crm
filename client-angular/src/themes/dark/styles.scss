@@ -1,0 +1,9 @@
+@import "../common/bootstrap";
+
+.dark-theme {
+    background-color: #141719;
+
+    & {
+        color: #fff;
+    }
+}
