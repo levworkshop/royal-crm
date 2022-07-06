@@ -8,6 +8,16 @@ import { SessionService } from './core/session.service';
 })
 export class AppComponent implements AfterViewInit {
 
+    themes = [{
+        title: 'Light',
+        value: 'light-theme'
+    }, {
+        title: 'Dark',
+        value: 'dark-theme'
+    }];
+
+    selectedTheme = 'light-theme';
+
     constructor(private sessionService: SessionService) { }
 
     ngAfterViewInit(): void {
