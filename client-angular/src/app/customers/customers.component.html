@@ -23,17 +23,22 @@
             <tr>
                 <th>
                     Name
-                    <button (click)="sortCustomers('name')">{{displaySort('name')}}</button>
+                    <button (click)="sortCustomers('name')" class="btn btn-default">
+                        <i [ngClass]="displaySort('name')"></i>
+                    </button>
                 </th>
                 <th>
                     Email
-                    <button (click)="sortCustomers('email')">{{displaySort('email')}}</button>
+                    <button (click)="sortCustomers('email')" class="btn btn-default">
+                        <i [ngClass]="displaySort('email')"></i>
+                    </button>
                 </th>
                 <th>Phone</th>
                 <th>
                     Country
-                    <button
-                        (click)="sortCustomers('country_name')">{{displaySort('country_name')}}</button>
+                    <button (click)="sortCustomers('country_name')" class="btn btn-default">
+                        <i [ngClass]="displaySort('country_name')"></i>
+                    </button>
                 </th>
             </tr>
         </thead>
