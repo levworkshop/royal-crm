@@ -44,8 +44,7 @@ module.exports = {
     },
 
     customersList: async function (req, res, next) {
-        const param = req.query; // get method
-        //  const param = req.body;  // post method
+        const param = req.query;
 
         const schema = joi.object({
             column: joi.string().valid('name', 'email', 'country_name').default('name'),
