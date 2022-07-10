@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Customer, FilePath } from '../shared/types';
+import { Country, Customer, FilePath } from '../shared/types';
 
 @Injectable({
     providedIn: 'root'
@@ -34,5 +34,9 @@ export class ApiService {
             customer,
             { headers: { 'Content-Type': 'application/json' } }
         )
+    }
+
+    getCountries(): Observable<Array<Country>> {
+        return this.http.get<Array<Country>>(`${environment.serverUrl}/countries`);
     }
 }

@@ -8,6 +8,12 @@ export interface Customer {
     country_code: string;
 }
 
+export interface Country {
+    id: number;
+    name: string;
+    country_code: string;
+}
+
 export interface FilePath {
     name: string;
 }
