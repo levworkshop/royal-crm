@@ -2,21 +2,27 @@
     Customers <small class="text-secondary">({{customersTotal()}})</small>
 </h2>
 
-<div class="p-3">
+<div class="section-bg p-3">
 
-    <div>
-        <input (keydown)="findCustomer($event)" [(ngModel)]="searchFieldValue" type="text"
-            placeholder="Search by name, email, country">
-        <button (click)="clearSearch()">
-            <i class="bi-x-lg"></i>
-        </button>
-
-
-        <button (click)="exportCustomersData()" class="btn btn-primary">
-            <i class="bi-download me-2"></i>
-            Export
-        </button>
+    <div class="d-flex mb-4">
+        <div class="me-auto p-2">
+            <div class="input-group">
+                <input (keydown)="findCustomer($event)" [(ngModel)]="searchFieldValue"
+                    type="text" placeholder="Search by name, email, country"
+                    class="form-control">
+                <button (click)="clearSearch()" class="btn btn-outline-secondary" type="button"
+                    id="button-addon2"><i class="bi-x-lg"></i></button>
+            </div>
+        </div>
+        <div class="p-2">
+            <button (click)="exportCustomersData()" class="btn btn-primary">
+                <i class="bi-download pe-2"></i>
+                Export
+            </button>
+        </div>
     </div>
+
+
 
     <table class="table">
         <thead>
