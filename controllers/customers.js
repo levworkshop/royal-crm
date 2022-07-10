@@ -27,20 +27,18 @@ module.exports = {
         try {
             const result = await database.query(
                 sql,
-                [
-                    reqBody.name,
-                    reqBody.phone,
-                    reqBody.email,
-                    reqBody.countryId
-                ]
+                value
             );
+
+            value.id = result[0].insertId;
+            res.json(value);
         }
         catch (err) {
             console.log(err);
             return;
         }
 
-        res.send(`${reqBody.name} added successfully`);
+
     },
 
     customersList: async function (req, res, next) {

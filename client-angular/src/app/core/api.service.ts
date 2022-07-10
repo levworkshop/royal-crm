@@ -27,4 +27,8 @@ export class ApiService {
     findCustomer(searchTerm: string): Observable<Array<Customer>> {
         return this.http.get<Array<Customer>>(`${environment.serverUrl}/customers/find?search=${searchTerm}`)
     }
+
+    // addCustomer(customer: Customer): Observable<Customer> {
+
+    // }
 }
