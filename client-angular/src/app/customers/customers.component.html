@@ -46,6 +46,8 @@
                 <label for="" class="form-label">Country</label>
 
             </div>
+            <button [disabled]="!customerForm.valid" type="submit"
+                class="btn btn-primary">Add</button>
         </form>
     </div>
 
