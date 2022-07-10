@@ -1,11 +1,11 @@
 export interface Customer {
-    id: number;
-    name: string;
-    phone: string;
-    email: string;
-    country_id: number;
-    country_name: string;
-    country_code: string;
+    id?: number;
+    name?: string;
+    phone?: string;
+    email?: string;
+    country_id?: string;
+    country_name?: string;
+    country_code?: string;
 }
 
 export interface Country {

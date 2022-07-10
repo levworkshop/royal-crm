@@ -28,13 +28,21 @@ export class CustomersComponent implements OnInit {
         phone: new FormControl('', {
             validators: Validators.required
         }),
-        country: new FormControl('', {
+        country_id: new FormControl('', {
             validators: Validators.required
         })
     });
 
     onSumbit() {
+        if (!this.customerForm.valid) {
+            return;
+        }
 
+        const customer = this.customerForm.value;
+
+        // this.apiService.addCustomer(this.customerForm.value).subscribe({
+
+        // })
     }
 
     toggleForm() {
