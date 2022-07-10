@@ -44,7 +44,10 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Country</label>
-                <select name="" id=""></select>
+                <select formControlName="country" class="form-select">
+                    <option *ngFor="let country of countries" [value]="country.id">
+                        {{country.name}}</option>
+                </select>
             </div>
             <button [disabled]="!customerForm.valid" type="submit"
                 class="btn btn-primary">Add</button>
