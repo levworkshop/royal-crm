@@ -15,6 +15,7 @@ export class CustomersComponent implements OnInit {
     searchFieldValue!: string;
     searchTerm!: string;
     tableSort!: CustomerSort;
+    showForm = false;
 
     customerForm = new FormGroup({
         name: new FormControl('', {
@@ -33,6 +34,10 @@ export class CustomersComponent implements OnInit {
 
     onSumbit() {
 
+    }
+
+    toggleForm() {
+        this.showForm = !this.showForm;
     }
 
     constructor(private apiService: ApiService) { }
