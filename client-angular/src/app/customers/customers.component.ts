@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { ApiService } from '../core/api.service';
 import { Customer, CustomerSort, FilePath, sortColumn } from '../shared/types';
@@ -14,6 +15,25 @@ export class CustomersComponent implements OnInit {
     searchFieldValue!: string;
     searchTerm!: string;
     tableSort!: CustomerSort;
+
+    customerForm = new FormGroup({
+        name: new FormControl('', {
+            validators: Validators.required
+        }),
+        email: new FormControl('', {
+            validators: [Validators.required, Validators.email]
+        }),
+        phone: new FormControl('', {
+            validators: Validators.required
+        }),
+        country: new FormControl('', {
+            validators: Validators.required
+        })
+    });
+
+    onSumbit() {
+
+    }
 
     constructor(private apiService: ApiService) { }
 
