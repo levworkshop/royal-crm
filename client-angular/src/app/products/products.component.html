@@ -21,9 +21,12 @@
     <tbody>
         <tr *ngFor="let product of products">
             <td class="d-flex flex-row">
-                <div class="me-3"> <img [src]="imagePath(product.image)"
-                        [alt]="product.description" width="50" height="50" /> </div>
-                <div> {{ product.name }}<br />
+                <div class="me-3">
+                    <img [src]="imagePath(product.image)" [alt]="product.description"
+                        width="50" height="50" />
+                </div>
+                <div>
+                    <div class="fw-bold">{{ product.name }}</div>
                     <span class="fw-light">{{ product.description }}</span>
                 </div>
             </td>
