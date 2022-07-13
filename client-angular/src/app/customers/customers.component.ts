@@ -42,6 +42,7 @@ export class CustomersComponent implements OnInit {
             next: (data: Customer) => { //todo: check data in response
                 this.getCustomers();
                 this.showForm = false;
+                this.customerForm.reset();
             },
             error: (err) => console.error(err)
         })

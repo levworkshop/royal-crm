@@ -41,14 +41,6 @@ module.exports = {
     },
 
     productsList: async function (req, res, next) {
-        /*
-        1. [V] add fields in the products html
-        2. [V] get the parameters from the request
-        3. [V] validate parameters using joi
-        4. [V] if validation fail - return error
-        6. [V] update sql query with parameters
-        */
-        
         const param = req.query;
 
         const schema = joi.object({
@@ -68,7 +60,7 @@ module.exports = {
 
         try {
             const result = await database.query(sql);
-            res.send(result[0]);
+            res.json(result[0]);
         }
         catch (err) {
             console.log(err);
@@ -122,7 +114,7 @@ module.exports = {
             return;
         }
 
-        
+
     },
 
     // todo: delete product

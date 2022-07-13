@@ -1,1 +1,34 @@
-<p>products works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Product
+                <!-- <button (click)="sortCustomers('name')" class="btn btn-default">
+                    <i [ngClass]="displaySort('name')"></i>
+                </button> -->
+            </th>
+            <th>
+                Price
+                <!-- <button (click)="sortCustomers('email')" class="btn btn-default">
+                    <i [ngClass]="displaySort('email')"></i>
+                </button> -->
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>
+                <img [src]="imagePath(product.image)" [alt]="product.description" width="50">
+                {{product.name}}<br>
+                {{product.description}}
+            </td>
+            <td>{{product.price}}</td>
+            <td>
+                <!-- todo: actions -->
+            </td>
+        </tr>
+    </tbody>
+</table>
