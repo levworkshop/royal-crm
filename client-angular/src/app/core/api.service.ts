@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Country, Customer, FilePath } from '../shared/types';
+import { AddCustomer, Country, Customer, FilePath } from '../shared/types';
 
 @Injectable({
     providedIn: 'root'
@@ -28,7 +28,7 @@ export class ApiService {
         return this.http.get<Array<Customer>>(`${environment.serverUrl}/customers/find?search=${searchTerm}`)
     }
 
-    addCustomer(customer: Customer): Observable<Customer> {
+    addCustomer(customer: AddCustomer): Observable<Customer> {
         return this.http.post<Customer>(
             `${environment.serverUrl}/customers`,
             customer,
