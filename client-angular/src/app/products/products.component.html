@@ -20,10 +20,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
-            <td>
-                <img [src]="imagePath(product.image)" [alt]="product.description" width="50">
-                {{product.name}}<br>
-                {{product.description}}
+            <td class="d-flex flex-row">
+                <div class="me-3"> <img [src]="imagePath(product.image)"
+                        [alt]="product.description" width="50" height="50" /> </div>
+                <div> {{ product.name }}<br />
+                    <span class="fw-light">{{ product.description }}</span>
+                </div>
             </td>
             <td>{{product.price}}</td>
             <td>
