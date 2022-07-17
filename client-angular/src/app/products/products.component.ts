@@ -38,4 +38,8 @@ export class ProductsComponent implements OnInit {
         })
     }
 
+    productsTotal(): number {
+        return this.products ? this.products.length : 0;
+    }
+
 }

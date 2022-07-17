@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { PhonePipe } from './pipes/phone.pipe';
 import { NotificationComponent } from './notification/notification.component';
 import { ExportComponent } from './export/export.component';
+import { PageTitleComponent } from './page-title/page-title.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { ExportComponent } from './export/export.component';
         PhonePipe,
         NotificationComponent,
         ExportComponent,
+        PageTitleComponent,
     ],
     imports: [
         CommonModule,
@@ -28,6 +30,7 @@ import { ExportComponent } from './export/export.component';
         PhonePipe,
         NotificationComponent,
         ExportComponent,
+        PageTitleComponent,
     ]
 })
 export class SharedModule { }
