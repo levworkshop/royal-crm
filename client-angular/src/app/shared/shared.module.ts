@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { PhonePipe } from './pipes/phone.pipe';
 import { NotificationComponent } from './notification/notification.component';
+import { ExportComponent } from './export/export.component';
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { NotificationComponent } from './notification/notification.component';
         FooterComponent,
         PhonePipe,
         NotificationComponent,
+        ExportComponent,
     ],
     imports: [
         CommonModule,
@@ -25,6 +27,7 @@ import { NotificationComponent } from './notification/notification.component';
         FooterComponent,
         PhonePipe,
         NotificationComponent,
+        ExportComponent,
     ]
 })
 export class SharedModule { }

@@ -43,4 +43,8 @@ export class ApiService {
     getProductsList(): Observable<Array<Product>> {
         return this.http.get<Array<Product>>(`${environment.serverUrl}/products`);
     }
+
+    exportProducts(): Observable<FilePath> {
+        return this.http.get<FilePath>(`${environment.serverUrl}/products/export`);
+    }
 }

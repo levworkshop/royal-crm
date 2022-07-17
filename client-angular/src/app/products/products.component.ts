@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ApiService } from '../core/api.service';
-import { Product } from '../shared/types';
+import { FilePath, Product } from '../shared/types';
 
 @Component({
     selector: 'app-products',
@@ -26,6 +27,15 @@ export class ProductsComponent implements OnInit {
 
     imagePath(image: string | null): string {
         return !image ? '' : `../../assets/images/${image}`;
+    }
+
+    exportProductsData() {
+        this.apiService.exportProducts().subscribe({
+            next: (data: FilePath) => {
+                window.open(`${environment.serverUrl}/${data.name}`);
+            },
+            error: (err) => console.error(err),
+        })
     }
 
 }

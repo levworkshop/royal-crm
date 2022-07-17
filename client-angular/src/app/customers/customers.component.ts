@@ -54,10 +54,6 @@ export class CustomersComponent implements OnInit {
         this.showNotification = state;
     }
 
-
-
-
-
     toggleForm() {
         this.showForm = !this.showForm;
     }
