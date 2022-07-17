@@ -1,12 +1,14 @@
 <div class="notification-container" role="alert" [ngClass]="{ 'd-block' : showNotification }">
     <div class="notification bg-info text-white">
+        <!-- header -->
         <div class="n-header" *ngIf="headerLabel">
             {{headerLabel}}
         </div>
+        <!-- content -->
         <div>
             <ng-content></ng-content>
         </div>
-
+        <!-- button -->
         <div class="text-center pt-10">
             <button type="button" class="btn btn-xs btn-default">
                 {{buttonLabel}}

@@ -24,6 +24,7 @@ import { NotificationComponent } from './notification/notification.component';
         HeaderComponent,
         FooterComponent,
         PhonePipe,
+        NotificationComponent,
     ]
 })
 export class SharedModule { }
