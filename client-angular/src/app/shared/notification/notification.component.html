@@ -1,1 +1,16 @@
-<p>notification works!</p>
+<div class="notification-container" role="alert" [ngClass]="{ 'd-block' : showNotification }">
+    <div class="notification bg-info text-white">
+        <div class="n-header" *ngIf="headerLabel">
+            {{headerLabel}}
+        </div>
+        <div>
+            <ng-content></ng-content>
+        </div>
+
+        <div class="text-center pt-10">
+            <button type="button" class="btn btn-xs btn-default">
+                {{buttonLabel}}
+            </button>
+        </div>
+    </div>
+</div>
