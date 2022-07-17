@@ -91,6 +91,7 @@
     </table>
 </div>
 
-<app-notification [headerLabel]="'Notice'" [showNotification]="showNotification">
+<app-notification (buttonClicked)="notificationClosed($event)" [headerLabel]="'Notice'"
+    [showNotification]="showNotification">
     <span class="text-white">Success</span>
 </app-notification>

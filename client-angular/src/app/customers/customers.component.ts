@@ -51,7 +51,7 @@ export class CustomersComponent implements OnInit {
     notificationClosed(state: boolean) {
         this.showForm = false;
         this.customerForm.reset();
-        // this.showNotification = true;
+        this.showNotification = state;
     }
 
 
