@@ -46,3 +46,16 @@ export interface Product {
     price: number;
     image: string | null;
 }
+
+export interface Login {
+    email?: string | null;
+    password?: string | null;
+}
+
+export interface User {
+    token: string;
+    id: number;
+    first_name: string;
+    last_name: string;
+    email: string;
+}
