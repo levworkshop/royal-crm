@@ -64,11 +64,6 @@ export class ApiService {
     }
 
     login(details: Login): Observable<User> {
-        // return this.http.post<User>(
-        //     `${environment.serverUrl}/login`,
-        //     details,
-        //     { headers: { 'Content-Type': 'application/json' } }
-        // );
         return this.POST<User>(`login`, details);
     }
 
