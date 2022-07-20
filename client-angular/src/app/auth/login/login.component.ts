@@ -30,9 +30,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
 
     onSubmit() {
-        // console.log(this.loginForm.value);
-        // console.log(this.loginForm.valid);
-
         if (!this.loginForm.valid) {
             return;
         }
