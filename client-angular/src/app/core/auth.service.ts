@@ -20,4 +20,9 @@ export class AuthService {
             })
         )
     }
+
+    logout() {
+        localStorage.removeItem(this.tokenField);
+        this.apiService.setToken('');
+    }
 }
