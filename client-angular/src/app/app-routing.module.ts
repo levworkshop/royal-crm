@@ -11,22 +11,16 @@ import { AuthService } from './core/auth.service';
 const routes: Routes = [
     {
         path: '',
+        canActivateChild: [AuthService],
         children: [
-            { path: 'signup-component', component: SignupComponent },
-            { path: 'login-component', component: LoginComponent },
-            {
-                path: '',
-                canActivateChild: [AuthService],
-                children: [
-                    { path: 'home-component', component: HomeComponent },
-                    { path: 'customers-component', component: CustomersComponent },
-                    { path: 'products-component', component: ProductsComponent },
-                    { path: 'orders-component', component: OrdersComponent },
-                ]
-            }
-
+            { path: 'home-component', component: HomeComponent },
+            { path: 'customers-component', component: CustomersComponent },
+            { path: 'products-component', component: ProductsComponent },
+            { path: 'orders-component', component: OrdersComponent },
         ]
-    }
+    },
+    { path: 'signup-component', component: SignupComponent },
+    { path: 'login-component', component: LoginComponent },
 ];
 
 @NgModule({
