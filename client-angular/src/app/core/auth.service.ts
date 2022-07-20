@@ -39,8 +39,10 @@ export class AuthService implements CanActivateChild {
     login(details: Login): Observable<User> {
         return this.apiService.login(details).pipe(
             tap((data: User) => {
-                localStorage.setItem(this.tokenField, data.token);
-                this.apiService.setToken(data.token);
+                if (data.token) {
+                    localStorage.setItem(this.tokenField, data.token);
+                    this.apiService.setToken(data.token);
+                }
             })
         )
     }

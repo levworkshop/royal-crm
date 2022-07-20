@@ -53,9 +53,16 @@ export interface Login {
 }
 
 export interface User {
-    token: string;
+    token?: string;
     id: number;
     first_name: string;
     last_name: string;
     email: string;
+}
+
+export interface RegisterUser {
+    first_name?: string | null;
+    last_name?: string | null;
+    email?: string | null;
+    password?: string | null;
 }

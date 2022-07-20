@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AddCustomer, Country, Customer, FilePath, Login, Product, User } from '../shared/types';
+import { AddCustomer, Country, Customer, FilePath, Login, Product, RegisterUser, User } from '../shared/types';
 
 @Injectable({
     providedIn: 'root'
@@ -65,6 +65,10 @@ export class ApiService {
 
     login(details: Login): Observable<User> {
         return this.POST<User>(`login`, details);
+    }
+
+    register(user: RegisterUser): Observable<User> {
+        return this.POST<User>(`register`, user);
     }
 
     GET<T>(url: string): Observable<T> {

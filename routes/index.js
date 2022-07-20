@@ -14,6 +14,8 @@ router.get('/signin', function (req, res, next) {
     res.sendFile(filePath);
 });
 
+router.post('/register', auth.registerUser);
+
 router.post('/login', auth.login);
 
 router.get('/logout', mwAuth, function (req, res, next) {

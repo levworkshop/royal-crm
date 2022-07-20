@@ -46,4 +46,44 @@ module.exports = {
             return;
         }
     },
+
+    registerUser: async function (req, res, next) {
+        const schema = joi.object({
+            first_name: joi.string().required().min(2).max(50),
+            last_name: joi.string().required().min(2).max(50),
+            email: joi.string().required().email().min(6).max(255),
+            password: joi.string().required().min(6).max(32),
+        });
+
+        const { error, value } = schema.validate(req.body);
+
+        if (error) {
+            console.log(error.details[0].message);
+            res.status(400).send('error sign up new user');
+            return;
+        }
+
+        const sql = `INSERT INTO users(first_name, last_name, email, password_hash) VALUES(?,?,?,?)`;
+
+        try {
+            const hash = await bcrypt.hash(value.password, 10);
+            const result = await database.query(sql, [
+                value.first_name,
+                value.last_name,
+                value.email,
+                hash
+            ]);
+
+            res.json({
+                id: result[0].insertId,
+                first_name: value.first_name,
+                last_name: value.last_name,
+                email: value.email
+            })
+        }
+        catch (err) {
+            console.log(err.message);
+            res.status(400).send('error sign up new user');
+        }
+    }
 }
